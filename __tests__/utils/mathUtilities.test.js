@@ -27,7 +27,7 @@ describe("Tests for isCorrectAnswer", () => {
         it("should return false for an incorrect answer", () => {
           const question = { operand1: 5, operand2: 3, operator: "+" };
           const incorrectAnswer = 9;
-          expect(isCorrectAnswer(question, incorrectAnswer)).toBe(false);  // Make sure the incorrect answer returns false
+          expect(isCorrectAnswer(question, incorrectAnswer)).toBe(false);  // Makes sure the incorrect answer returns false
         });
     
 });
