@@ -28,14 +28,12 @@ app.get("/", (req, res) => {
 
 // Renders quiz page
 app.get('/quiz', (req, res) => {
-    const streaks = 5; 
-    const question = "What is 2 + 2?"; 
-    res.render('quiz', { streaks, question });
+    res.render('quiz', { streaks, question: currentQuestion });
 });
 
 // Renders quiz completion page and updates leaderboards
 app.get("/completed_quiz", (req, res) => {
-    // Implementation for this route
+    res.render("completed_quiz", { streaks });
 });
 
 // Renders leaderboards page
@@ -46,11 +44,13 @@ app.get("/leaderboards", (req, res) => {
 // Handles quiz submissions
 app.post("/quiz", (req, res) => {
   const userAnswer = parseInt(req.body.answer, 10);
-  const currentQuestion = "What is 2 + 2?"; // Define currentQuestion
   if (isCorrectAnswer(userAnswer, currentQuestion)) {
-    // Handle correct answer
+    streaks++;
+    currentQuestion = getQuestion();
+    res.redirect("/quiz");
   } else {
-    // Handle incorrect answer
+    streaks = 0;
+    res.redirect("/completed_quiz");
   }
 });
 
