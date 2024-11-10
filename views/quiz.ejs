@@ -4,8 +4,9 @@
     <!-- Display question or whatever else here -->
     <h1>Math Quiz</h1>
     <p>Answer the question below:</p>
-     <p>Streak: <%= streak %></p>
+    <p>Streak: <%= streak %></p>
     <p>Question: <%= question %></p>
+    
     <form action="/quiz" method="POST">
         <input type="text" name="answer" required placeholder="Enter your answer">
         <button type="submit">Submit</button>
