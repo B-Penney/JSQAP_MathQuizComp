@@ -1,0 +1,22 @@
+<!-- leaderboards.ejs -->
+<%- include('partials/header') %>
+<main>
+    <h1>Leaderboards</h1>
+    <table>
+        <tr>
+            <th>Ranks</th>
+            <th>Streaks</th>
+            <th>Date</th>
+
+        </tr><% topStreaks.forEach((entry, index) => { %><tr>
+            
+            <td><%= index + 1 %></td>
+            <td><%= entry.streak %></td>
+            <td><%= entry.date.toLocaleString() %></td>
+        </tr>
+        <% }) %>
+    </table>
+    <a href="/">Home</a>
+</main>
+</body>
+</html>

@@ -11,30 +11,26 @@ let streak = 0;
 let currentQuestion = getQuestion();
 
 // Renders homepage
-app.get("/", (req, res) => {
+app.get("/", (res) => {
     res.render("index", { streak });
 });
 
 // Renders quiz page
-app.get("/quiz", (req, res) => {
+app.get("/quiz", (res) => {
     res.render("quiz", { streak, question: currentQuestion });
 });
 
 // Handles quiz submissions
-app.post("/quiz", (req, res) => {
-    const { answer } = req.body;
-
-    // Check if the answer is correct
-    if (isCorrectAnswer(currentQuestion, answer)) {
-        streak += 1;
-        currentQuestion = getQuestion(); // Grabs a new question for the next quiz
-        res.redirect("/quiz");
+app.post('/quiz', (req, res) => {
+    const userAnswer = parseInt(req.body.answer, 10);
+    if (userAnswer === isCorrectAnswer) {
+        streak++; // Increase streak for correct answer
     } else {
-        streak = 0;
-        res.redirect("/"); // Redirect to homepage if the answer is incorrect
+        streak = 0; // Reset streak for incorrect answer
     }
-});
 
+    res.redirect('/quiz'); 
+});
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
