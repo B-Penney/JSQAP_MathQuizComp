@@ -20,13 +20,13 @@ function getQuestion() {
  * @returns {boolean} True if the answer was correct, false otherwise.
  */
 
+function isCorrectAnswer(question, answer) {
+    return false;
+}
+
 function checkAnswer(userAnswer, isCorrectAnswer) {
     return parseFloat(userAnswer) === isCorrectAnswer;
   }
-  const userAnswer = "42";
-  const isCorrectAnswer = 42;
-  const result = checkAnswer(userAnswer, isCorrectAnswer);
-  console.log(result);
   
 module.exports = {
     getQuestion,
