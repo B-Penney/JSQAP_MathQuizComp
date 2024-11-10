@@ -23,7 +23,11 @@ function getQuestion() {
 function checkAnswer(userAnswer, isCorrectAnswer) {
     return parseFloat(userAnswer) === isCorrectAnswer;
   }
-
+  const userAnswer = "42";
+  const isCorrectAnswer = 42;
+  const result = checkAnswer(userAnswer, isCorrectAnswer);
+  console.log(result);
+  
 module.exports = {
     getQuestion,
     isCorrectAnswer
