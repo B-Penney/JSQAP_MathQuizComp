@@ -30,5 +30,6 @@ function checkAnswer(userAnswer, isCorrectAnswer) {
   
 module.exports = {
     getQuestion,
+    checkAnswer,
     isCorrectAnswer
 }
